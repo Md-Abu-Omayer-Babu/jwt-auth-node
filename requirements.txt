@@ -6,3 +6,5 @@ dotenv
 morgan
 cors
 nodemon --save-dev
+
+# secret key generator: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
