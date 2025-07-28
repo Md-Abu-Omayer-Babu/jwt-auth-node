@@ -99,7 +99,7 @@ jwt-auth-api/
 - **JWT (jsonwebtoken)** (Authentication)
 - **bcryptjs** (Password hashing)
 - **dotenv** (Environment variables)
-- **cors** (Logging & CORS handling)
+- **morgan, cors** (Logging & CORS handling)
 
 ---
 
