@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { User } from "../models/user.model.js";
+import User from "../models/user.model.js";
 import generateToken from "../utils/generateToken.js";
 
 const registerUser = async (req, res, next) => {
@@ -20,7 +20,7 @@ const registerUser = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-    //   username,
+      //   username,
       fullName,
       email,
       password: hashedPassword,
@@ -53,14 +53,14 @@ const loginUser = async (req, res, next) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      if (!user) return res.status(400).json({ message: 'Invalid email or password' });
+      return res.status(400).json({ message: "Invalid email or password" });
     }
-    
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
-    if(!isPasswordValid){
-        return res.status(400).json({
-            message: 'Invalid email or password'
-        })
+    if (!isPasswordValid) {
+      return res.status(400).json({
+        message: "Invalid email or password",
+      });
     }
 
     // Update last login timestamp
@@ -68,19 +68,19 @@ const loginUser = async (req, res, next) => {
     await user.save();
 
     res.json({
-        success: true,
-        token: generateToken(user._id),
-        user: {
-            id: user._id,
-            // username: user.username,
-            fullName: user.fullName,
-            email: user.email,
-            role: user.role,
-            isActive: user.isActive,
-            profileImage: user.profileImage,
-            lastLogin: user.lastLogin,
-        }
-    })
+      success: true,
+      token: generateToken(user._id),
+      user: {
+        id: user._id,
+        // username: user.username,
+        fullName: user.fullName,
+        email: user.email,
+        role: user.role,
+        isActive: user.isActive,
+        profileImage: user.profileImage,
+        lastLogin: user.lastLogin,
+      },
+    });
   } catch (error) {
     console.error("Error in loginUser:", error);
     next(error);
