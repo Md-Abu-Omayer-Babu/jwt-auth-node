@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+
+# Build outputs
+dist/
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# npm cache and temp
+.npm
+.tmp/
+
+# Debug folders
+debug/
+
+# Lock files (optional, if you don't want to commit them)
+package-lock.json
+
+# Test results
+jest-test-results.json
+
+# Local MongoDB database dumps (if any)
+dump/

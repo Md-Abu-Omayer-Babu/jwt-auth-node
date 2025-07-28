@@ -1,0 +1,8 @@
+express
+mongoose
+bcryptjs
+jsonwebtoken
+dotenv
+morgan
+cors
+nodemon --save-dev
